@@ -1,21 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import NavBar from "./components/NavBar"
-import HeroSection from './components/HeroSection'
-import Artist from './components/Artist'
+import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import Artist from './pages/Artist';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div className="bg-[#1b1f24] w-full h-[100vh]">
-      <NavBar/>
-      <HeroSection/>
-      <Artist />
-    </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<Artist />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
